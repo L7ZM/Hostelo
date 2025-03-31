@@ -2,7 +2,7 @@
 
 Welcome to **Hostelo**, a full-stack hotel management application designed to simplify **reservations, client management, rooms, and services**.
 
-![Hostelo Thumbnail](./thumbnail.png)
+![Hostelo Thumbnail](C:\Users\pc\Desktop\Home Page.png)
 
 ## 🚀 Features
 ✅ **Reservation Management** – Book, update, and cancel stays  
