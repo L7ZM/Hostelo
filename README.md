@@ -1,100 +1,63 @@
-# 🏨 Hostelo - Hotel Management System
+🏨 Hostelo — Hotel Management System
+Welcome to Hostelo — a robust hotel management app designed for modern reservation, client, room, and service handling.
+Effortlessly manage bookings, guests, rooms, and amenities in one place.
 
-Welcome to **Hostelo**, a full-stack hotel management application designed to simplify **reservations, client management, rooms, and services**.
+🚀 Features
+Reservation Management — Create, edit, and cancel reservations with ease.
 
-## 🖼️ Screenshots
+Client Management — Store, update, and organize customer data.
 
-**Home Page**  
-![Home Page](demo/Home-page.png)
+Room Management — Assign rooms and track real-time availability.
 
-**Login Screen**  
-![Login Screen](demo/Login-page.png)
+Service Management — Manage extra services (dining, spa, cleaning, etc.).
 
-**Reservation Dashboard**  
-![Reservation Dashboard](demo/Reservation-Dashboard.png)
+Authentication & Security — Secure login and JWT-based user sessions.
 
-**Room Management**  
-![Room Management](demo/room-management.png)
+🖼️ Demo Screenshots
+<p align="center"> <img src="demo/Home-page.png" width="320" alt="Home"/> <img src="demo/Login-page.png" width="320" alt="Login"/> <img src="demo/Reservation-Dashboard.png" width="320" alt="Reservations"/> <img src="demo/room-management.png" width="320" alt="Rooms"/> <img src="demo/users-management.png" width="320" alt="Clients"/> <img src="demo/services-management.png" width="320" alt="Services"/> <img src="demo/admin-panel.png" width="320" alt="Admin"/> <img src="demo/account-edit.png" width="320" alt="Edit Account"/> </p>
+💻 Tech Stack
+Frontend	Backend	Database	Utilities
+Angular 15	Spring Boot	PostgreSQL	GitHub, Postman
+Bootstrap 5	Spring Security		
+PrimeNG	Spring Data		
+Carbon Design	RESTful APIs		
+🛠️ Getting Started
+Clone the Repository
+bash
+git clone https://github.com/L7ZM/Hostelo.git
+cd Hostelo
+Backend Setup (Spring Boot)
+Edit application.properties to add your PostgreSQL connection.
 
-**Client Management**  
-![Client Management](demo/users-management.png)
+Build and run the backend:
 
-**Service Management**  
-![Service Management](demo/services-management.png)
-
-**Admin Panel**  
-![Admin Panel](demo/admin-panel.png)
-
-**Edit Account**  
-![Account Edit](demo/account-edit.png)
-
----
-
-## 🚀 Features
-
-✅ **Reservation Management** – Book, update, and cancel stays  
-✅ **Client Management** – Store and manage customer details  
-✅ **Room Management** – Track availability and assignments  
-✅ **Service Management** – Additional services like dining & spa  
-✅ **Authentication & Security** – JWT-based authentication  
-
----
-
-## 💻 Tech Stack
-
-### 🔹 Front-end
-- **Angular 15** (TypeScript)
-- **Bootstrap 5**, **PrimeNG**, **Carbon Design System**
-
-### 🔹 Back-end
-- **Spring Boot** (Spring Security, Spring Data)
-- **PostgreSQL** (Database)
-- **RESTful APIs**
-
-### 🔹 Tools
-- **GitHub** (Version Control)
-- **Postman** (API Testing)
-
----
-
-## 📂 Installation & Setup
-
-### Clone the Repository
-
-git clone https://github.com/yourusername/hostelo.git
-cd hostelo
-
-text
-
-### Backend Setup (Spring Boot)
-
-1. Configure **PostgreSQL** connection in `application.properties`
-2. Build and run the project
-
+bash
 mvn spring-boot:run
-
-text
-
-### Frontend Setup (Angular)
-
-cd frontend
+Frontend Setup (Angular)
+bash
+cd front
 npm install
 ng serve
+📝 Contributing
+Fork the repo
 
-text
+Create a feature branch
 
----
+Open a pull request!
 
-## 📜 License
+Join the project — all contributions are welcome!
 
-This project is open-source under the **MIT License**.
+📄 License
+This project is licensed under the MIT License.
 
----
+✨ Why Hostelo?
+Real-world use case: Designed for actual hospitality operations.
 
-## 🤝 Contributing
+Scalable: Modern stack, ready for cloud deployment.
 
-Feel free to fork the repo, create a branch, and submit a pull request.
+Secure: JWT authentication, role-based authorization.
 
----
+Extensible: Easy to add new features, microservices-ready.
 
-🚀 **Happy Coding!**
+🚀 Ready to revolutionize hotel management?
+Give it a try, star the repo, and share your feedback!
