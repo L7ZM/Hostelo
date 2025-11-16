@@ -5,28 +5,28 @@ Welcome to **Hostelo**, a full-stack hotel management application designed to si
 ## 🖼️ Screenshots
 
 **Home Page**  
-![Home Page](https://github.com/user-attachments/assets/75aa3509-ffde-47c9-9991-233e13ef4230)
+![Home Page](demo/Home-page.png)
 
 **Login Screen**  
-![Login Screen](link-to-login-screenshot)
+![Login Screen](demo/Login-page.png)
 
 **Reservation Dashboard**  
-![Reservation Dashboard](link-to-reservation-screenshot)
+![Reservation Dashboard](demo/Reservation-Dashboard.png)
 
 **Room Management**  
-![Room Management](link-to-room-management-screenshot)
+![Room Management](demo/room-management.png)
 
 **Client Management**  
-![Client Management](link-to-client-management-screenshot)
+![Client Management](demo/users-management.png)
 
 **Service Management**  
-![Service Management](link-to-service-management-screenshot)
+![Service Management](demo/services-management.png)
 
 **Admin Panel**  
-![Admin Panel](link-to-admin-panel-screenshot)
+![Admin Panel](demo/admin-panel.png)
 
-**Mobile View**  
-![Mobile View](link-to-mobile-screenshot)
+**Edit Account**  
+![Mobile View](demo/account-edit .png)
 
 ---
 
