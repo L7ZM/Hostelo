@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+/* Global reset for padding and margins */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  width: 100%;
+}
+
+

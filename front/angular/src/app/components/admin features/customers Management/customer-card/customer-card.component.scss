@@ -1,0 +1,93 @@
+.customer-card {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 1rem;
+}
+
+.customer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.compact-card {
+  padding: 0.8rem;
+}
+
+.customer-badge {
+  background-color: #1e90ff;
+  color: white;
+  font-size: 1rem;
+  height: 28px;
+  width: 28px;
+  line-height: 28px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.compact-badge {
+  font-size: 0.9rem;
+  height: 22px;
+  width: 22px;
+  line-height: 22px;
+}
+
+.customer-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.customer-email {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+  margin: 0.3rem 0;
+}
+
+.customer-phone {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0.2rem 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.update-button, .delete-button {
+  margin: 0.2rem;
+}
+
+.compact-button {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.update-button {
+  color: #4caf50;
+  border-color: #4caf50;
+}
+
+.delete-button {
+  color: #f44336;
+  border-color: #f44336;
+}
+
+::ng-deep .p-card .p-card-body {
+  padding: 0rem;
+}
+
+::ng-deep .p-card .p-card-content {
+  padding: 2rem 0;
+}
+
+::ng-depp .p-card .p-card-footer {
+  padding: 0 0 0 0;
+}

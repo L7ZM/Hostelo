@@ -1,0 +1,75 @@
+.card {
+  margin: 20px;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.p-table {
+  font-size: 14px; /* Smaller font size for the table */
+}
+
+.p-toolbar {
+  margin-bottom: 16px;
+}
+
+.p-button {
+  font-size: 15px; /* Smaller button text */
+  padding: 7px 14px; /* Smaller button padding */
+}
+
+.p-dialog {
+  border-radius: 8px;
+}
+
+.p-inputNumber,
+.p-dropdown,
+.p-inputTextarea {
+  width: 100%;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.photo-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: flex-start;
+}
+
+.photo-item {
+  position: relative;
+  width: 100px; /* Fixed width for each image container */
+  height: 100px; /* Fixed height for consistency */
+  overflow: hidden; /* Prevents overflow of image */
+  border-radius: 4px;
+}
+
+.photo-item img {
+  width: 100%; /* Ensure image fills the container */
+  height: 100%; /* Ensure image fits the container */
+  object-fit: cover; /* Crop the image to fit the container */
+}
+
+.photo-item button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+::ng-deep .p-galleria .p-galleria-item-nav {
+  background: transparent;
+  color: #f8f9fa;
+  width: 4rem;
+  height: 4rem;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  border-radius: 6px;
+  margin: -21px 0.5rem;
+}

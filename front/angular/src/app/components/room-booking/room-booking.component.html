@@ -1,0 +1,168 @@
+<main id="main-container">
+  <!-- Navbar -->
+  <div
+    class="bg-body-light"
+    (scroll)="onscroll()"
+    [ngClass]="navbarfixed ? 'fixed' : 'nofixed'"
+  >
+    <div class="content content-center">
+      <div
+        class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2"
+      >
+        <div class="flex-grow-1">
+          <div class="input-daterange input-group">
+            <h3 id="bookYourStay" class="block-title">BOOK YOUR STAY</h3>
+
+            <!-- Date From -->
+            <p-calendar
+              [(ngModel)]="dateFrom"
+              [maxDate]="dateTo"
+              placeholder="From"
+              dateFormat="dd/mm/yy"
+              [ngClass]="{'error-border': dateFromError}"
+              (ngModelChange)="validateDates()"
+            ></p-calendar>
+
+
+            <span class="input-group-text fw-semibold">
+              <i class="fa fa-arrow-right"></i>
+            </span>
+
+            <!-- Date To -->
+            <p-calendar
+              [(ngModel)]="dateTo"
+              [minDate]="dateFrom"
+              placeholder="To"
+              dateFormat="dd/mm/yy"
+              [ngClass]="{'error-border': dateToError}"
+              (ngModelChange)="validateDates()"
+            ></p-calendar>
+
+
+            <!-- Filters and Search Buttons -->
+            <button
+              class="btn btn-lg rounded-pill btn-alt-secondary me-2"
+              style="margin-left:7px ;"
+              (click)="visible = true"
+            >
+              <i class="pi pi-filter"></i> Filters
+            </button>
+            <button
+              pButton
+              pRipple
+              label="Search"
+              icon="pi pi-search"
+              class="btn btn-sm rounded-pill btn-outline-dark me-1"
+              (click)="applyFilters()"
+            ></button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Room Cards -->
+  <div class="hotel-cards-container">
+    <div class="hotel-card" *ngFor="let room of filteredRooms">
+      <!-- Room Image Carousel -->
+      <div class="hotel-left">
+        <div *ngIf="room.photos?.length; else noPhoto">
+          <p-galleria [value]="room.photos" [showItemNavigators]="true" [showThumbnails]="false"
+           [showIndicators]="false" [showIndicatorsOnItem]="true"
+            [containerStyle]="{ 'max-width': '433px' }">
+            <ng-template pTemplate="item" let-photo>
+                <img [src]="'data:image/jpeg;base64,' + photo" style="width: 100%; display: block;" />
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-photo>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="'data:image/jpeg;base64,' + photo" style="display: block;" />
+                </div>
+            </ng-template>
+        </p-galleria>
+        </div>
+
+        <ng-template #noPhoto>
+          <div class="no-photo-placeholder text-center">
+            No Photos Available
+          </div>
+        </ng-template>
+      </div>
+
+      <!-- Room Details -->
+      <div class="hotel-right">
+        <h2 class="hotel-title"> Room N :{{ room.numeroChambre }} </h2>
+        <h4 class="room-type">{{ room.type }}</h4>
+
+        <p class="description">
+          {{ room.description || "No description available." }}
+        </p>
+        <div class="price-section">
+          <span class="price">{{ room.prix }} MAD / nuit</span>
+          <button class="btn btn-primary btn-sm mt-2" (click)="openBookingDialog(room)">
+            Book
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Filter Dialog -->
+<p-dialog
+  header="Filtres"
+  [(visible)]="visible"
+  [modal]="true"
+  [closable]="true"
+>
+
+
+  <!-- Room Type Filter -->
+  <div class="filter-section">
+    <h4>Room Type</h4>
+    <p-multiSelect
+      [options]="roomTypes"
+      [(ngModel)]="selectedRoomTypes"
+      defaultLabel="Select Room Types"
+    ></p-multiSelect>
+  </div>
+
+  <!-- Availability Filter -->
+  <div class="filter-section">
+    <h4>Availability</h4>
+    <p-dropdown
+      [options]="availabilityOptions"
+      [(ngModel)]="selectedAvailability"
+      placeholder="Select Availability"
+    ></p-dropdown>
+  </div>
+  <!-- Price Filter -->
+  <div class="filter-section">
+    <h4>Price Range</h4>
+    <p-slider
+      [(ngModel)]="priceRange"
+      [min]="100"
+      [max]="1000"
+      [range]="true"
+    ></p-slider>
+    <p>{{ priceRange[0] }} MAD - {{ priceRange[1] }} MAD</p>
+  </div>
+  <!-- Buttons -->
+  <div class="dialog-footer">
+    <button
+      pButton
+      label="Reset"
+      (click)="resetFilters()"
+      class="p-button-text"
+    ></button>
+    <button
+      pButton
+      label="Apply"
+      icon="pi pi-check"
+      class="p-button-primary"
+      (click)="applyFilters()"
+    ></button>
+  </div>
+</p-dialog>
+<p-toast></p-toast>

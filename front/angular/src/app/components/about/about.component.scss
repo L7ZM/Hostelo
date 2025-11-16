@@ -1,0 +1,284 @@
+// _variables.scss
+$primary-color: #1a1a1a;
+$accent-color: #0066ff;
+$background-color: #ffffff;
+$surface-color: #f8f9fa;
+$text-color: #2c3e50;
+$error-color: #dc3545;
+$success-color: #28a745;
+$spacing: 1.5rem;
+$border-radius: 12px;
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$container-max-width: 1200px;
+
+// Mixins
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-page {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $spacing * 2;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(circle at 0% 0%, rgba($accent-color, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba($accent-color, 0.1) 0%, transparent 50%);
+    z-index: -1;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, $primary-color, $accent-color);
+    -webkit-text-fill-color: transparent;
+    margin-bottom: $spacing * 3;
+    text-align: center;
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing * 2;
+    margin-bottom: $spacing * 4;
+
+    .info-card {
+      @include glass-effect;
+      padding: $spacing * 2;
+      border-radius: $border-radius;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        transform: translateY(-8px);
+      }
+
+      h3 {
+        color: $accent-color;
+        font-size: 1.5rem;
+        margin-bottom: $spacing;
+        display: flex;
+        align-items: center;
+        gap: $spacing;
+
+        &::before {
+          content: '';
+          width: 40px;
+          height: 2px;
+          background: $accent-color;
+        }
+      }
+
+      p {
+        color: $text-color;
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .contact-form {
+    @include glass-effect;
+    padding: $spacing * 3;
+    border-radius: $border-radius * 2;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .form-group {
+      margin-bottom: $spacing * 2;
+
+      label {
+        display: block;
+        margin-bottom: $spacing;
+        color: $text-color;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: $spacing;
+        border: 2px solid transparent;
+        border-radius: $border-radius;
+        background: $surface-color;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $accent-color;
+          background: white;
+          box-shadow: 0 0 0 4px rgba($accent-color, 0.1);
+        }
+
+        &::placeholder {
+          color: lighten($text-color, 40%);
+        }
+      }
+
+      textarea {
+        min-height: 180px;
+      }
+    }
+
+    button {
+      background: linear-gradient(135deg, $accent-color, darken($accent-color, 10%));
+      color: white;
+      padding: $spacing $spacing * 3;
+      border: none;
+      border-radius: $border-radius;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($accent-color, 0.2);
+      }
+    }
+  }
+
+  .status-message {
+    padding: $spacing;
+    border-radius: $border-radius;
+    margin-top: $spacing;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+
+    &.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &.success {
+      background: rgba($success-color, 0.1);
+      color: $success-color;
+    }
+
+    &.error {
+      background: rgba($error-color, 0.1);
+      color: $error-color;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: $spacing;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .contact-form {
+      padding: $spacing * 2;
+    }
+  }
+}
+  /* Style for the carousel items */
+.facility-carousel .facility-item {
+  text-align: center;
+  padding: 1rem; /* Padding around each card */
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem; /* Adds space between the cards vertically */
+  transition: transform 0.3s ease; /* Optional: Add smooth transform effect */
+}
+/* Hide carousel indicators */
+/* Use a more specific selector */
+div .p-carousel .p-carousel-indicators,
+div .p-carousel .p-carousel-dot {
+  display: none !important;
+}
+
+/* On hover, slightly scale the card */
+.facility-carousel .facility-item:hover {
+  transform: scale(1.05);
+}
+
+/* Style for the image */
+.facility-carousel .facility-item img {
+  width: 86%; /* Adjust width to 86% */
+  height: 280px; /* Set height to 280px */
+  object-fit: cover; /* Ensure the image covers the space */
+  border-radius: 8px; /* Rounded corners for the image */
+  margin-bottom: 1rem;
+}
+
+/* Adjust spacing between carousel items */
+.facility-carousel .p-carousel-item {
+  display: flex;
+  justify-content: center; /* Align items centrally */
+  gap: 3rem; /* Increase space between the cards horizontally */
+}
+
+/* Adjust text and titles */
+.facility-carousel .facility-item h3 {
+  font-size: 1.1rem; /* Smaller font size for title */
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.facility-carousel .facility-item p {
+  font-size: 0.9rem; /* Smaller font size for description */
+  color: #777;
+}
+
+/* Optional: Adjust responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .facility-carousel .facility-item {
+    padding: 0.5rem; /* Reduce padding on smaller screens */
+  }
+
+  .facility-carousel .facility-item img {
+    width: 80%; /* Adjust width for mobile screens */
+    height: 200px; /* Smaller height for mobile screens */
+  }
+
+  .facility-carousel .facility-item h3 {
+    font-size: 1rem; /* Smaller title font on mobile */
+  }
+
+  .facility-carousel .facility-item p {
+    font-size: 0.8rem; /* Smaller description font on mobile */
+  }
+}

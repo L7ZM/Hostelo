@@ -1,0 +1,95 @@
+<div class="flex" style="flex-direction: row;">
+  <!-- Form Section -->
+  <div class="col-6 form-section flex flex-column justify-content-center">
+    <div class="form-container">
+      <div class="text-center">
+        <a routerLink="" class="d-flex justify-content-center mb-3">
+          <img
+            src="assets/LogoPNG.png"
+            alt="Hotel Logo"
+            class="navbar-logo"
+          />
+        </a>
+        <h1>Welcome Back!</h1>
+      </div>
+
+      <p-message
+        *ngIf="errorMsg"
+        severity="error"
+        [text]="errorMsg"
+        styleClass="mb-2 w-full"
+      ></p-message>
+
+      <form #form="ngForm" (ngSubmit)="login()">
+        <!-- Email Field -->
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            [(ngModel)]="authenticationRequest.email"
+            id="email"
+            name="email"
+            pInputText
+            placeholder="Jane@amigoscode.com"
+            type="email"
+            class="w-full"
+            required
+            email
+            #email="ngModel"
+            [ngClass]="{ 'error-border': email.touched && email.invalid }"
+          />
+          <div *ngIf="email.touched && email.invalid" class="error-message">
+            <small *ngIf="email.errors?.['required']">Email is required.</small>
+            <small *ngIf="email.errors?.['email']">Invalid email format.</small>
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            [(ngModel)]="authenticationRequest.password"
+            id="password"
+            name="password"
+            pInputText
+            placeholder="Password"
+            type="password"
+            class="w-full"
+            required
+            minlength="6"
+            #password="ngModel"
+            [ngClass]="{ 'error-border': password.touched && password.invalid }"
+          />
+          <div *ngIf="password.touched && password.invalid" class="error-message">
+            <small *ngIf="password.errors?.['required']">Password is required.</small>
+            <small *ngIf="password.errors?.['minlength']">
+              Password must be at least 6 characters.
+            </small>
+          </div>
+        </div>
+
+        <!-- Login Button -->
+        <button
+          pButton
+          label="Login"
+          class="w-full"
+          type="submit"
+          [disabled]="form.invalid"
+        ></button>
+      </form>
+
+      <!-- Signup Button -->
+      <div class="signup-button" (click)="register()">
+        Don’t have an account yet? <span style="font-weight: bold;">Sign up here!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Section -->
+  <div class="col-6 right-container flex flex-column justify-content-center align-items-center">
+    <img
+      class="background"
+      src="assets/7.jpg"
+      alt="Background"
+    />
+  </div>
+</div>

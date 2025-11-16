@@ -1,0 +1,83 @@
+/* Confirm Dialog Customization */
+::ng-deep .p-confirm-dialog {
+  width: 350px !important; /* Set the width to a professional size */
+  max-width: 90% !important; /* Ensure it’s responsive */
+  border-radius: 12px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Header - Add subtle color and increase contrast */
+::ng-deep .p-confirm-dialog .p-dialog-header {
+  background-color: #007bff; /* Blue color */
+  color: white; /* White text for contrast */
+  border-radius: 12px 12px 0 0; /* Rounded top corners */
+  font-weight: bold;
+  padding: 10px 15px; /* Padding for more spacious header */
+  font-size: 1.2em; /* Slightly bigger font for the title */
+  text-align: center; /* Center the title text */
+}
+
+/* Dialog Content */
+::ng-deep .p-confirm-dialog .p-dialog-content {
+  padding: 15px;
+  font-size: 1em;
+  color: #333; /* Darker text for better readability */
+  line-height: 1.5; /* Increase line height for better readability */
+  text-align: center;
+}
+
+/* Footer - Stylish, clean, and modern buttons */
+::ng-deep .p-confirm-dialog .p-dialog-footer {
+  background-color: #f8f9fa; /* Light gray footer background */
+  padding: 15px; /* Padding for spacing */
+  border-radius: 0 0 12px 12px; /* Rounded bottom corners */
+  display: flex;
+  justify-content: space-evenly; /* Space between buttons */
+  gap: 15px; /* Gap between buttons */
+}
+
+/* Button Styles - Primary (Confirm) and Secondary (Cancel) */
+::ng-deep .p-confirm-dialog .p-button {
+  border-radius: 8px; /* Rounded buttons for a modern feel */
+  padding: 8px 20px; /* Add padding to buttons for better aesthetics */
+  font-size: 1em; /* Standardize the font size */
+  font-weight: bold; /* Make text bold */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+::ng-deep .p-confirm-dialog .p-button-confirm {
+  background-color: #28a745; /* Green color for Confirm button */
+  color: white;
+}
+
+::ng-deep .p-confirm-dialog .p-button-confirm:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+::ng-deep .p-confirm-dialog .p-button-cancel {
+  background-color: #dc3545; /* Red color for Cancel button */
+  color: white;
+}
+
+::ng-deep .p-confirm-dialog .p-button-cancel:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Subtle hover effect for all buttons */
+::ng-deep .p-confirm-dialog .p-button:hover {
+  transform: translateY(-2px); /* Slightly lift the button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Add shadow effect */
+}
+
+/* Make the confirmation dialog more visually engaging */
+::ng-deep .p-confirm-dialog .p-button:active {
+  transform: translateY(1px); /* Button pushes down when clicked */
+  box-shadow: none; /* Remove shadow on active state */
+}
+
+/* Small and responsive design */
+@media (max-width: 600px) {
+  ::ng-deep .p-confirm-dialog {
+    width: 80% !important; /* Make dialog even smaller on mobile */
+  }
+}

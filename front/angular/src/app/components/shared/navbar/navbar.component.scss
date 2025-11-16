@@ -1,0 +1,275 @@
+
+/* --- Fidelity Points Section Styling --- */
+
+:host ::ng-deep .fidelity-points {
+  margin-top: 20px;
+  border-top: 2px solid #f1f1f1;
+  padding-top: 20px;
+}
+
+:host ::ng-deep .fidelity-points h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+:host ::ng-deep .points-display {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+:host ::ng-deep .points-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+:host ::ng-deep .points-input label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+:host ::ng-deep .points-input-field {
+  width: 120px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+:host ::ng-deep .points-input-field:focus {
+  border-color: #007bff;
+}
+
+:host ::ng-deep .apply-all-points {
+  margin-bottom: 15px;
+}
+
+:host ::ng-deep .applied-points-info {
+  font-size: 16px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+:host ::ng-deep .text-danger {
+  font-size: 14px;
+  color: red;
+}
+
+:host ::ng-deep .p-checkbox {
+  margin-top: 10px;
+}
+
+
+/* Make sure the logo section does not overlap with the icon */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+/* Navbar Background */
+:host {
+  display: block;
+  background-color: #2c3e50;
+  /* Dark navy blue */
+}
+
+#page-header {
+  background-color: rgb(255, 255, 255);
+}
+
+/* Navbar overall styling */
+.navbar {
+  padding: 10px 30px;
+  /* Ensure enough padding for spacing */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f39c12;
+  /* Gold accent for luxury feel */
+}
+
+/* Navbar Logo Image */
+.navbar-logo {
+  width: 102px;
+  height: 76px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+/* Logo Text Style */
+.navbar-logo+span {
+  font-size: 1.5rem;
+  /* Slightly larger text for better visibility */
+  font-weight: bold;
+  color: #f39c12;
+  /* Gold color for logo text */
+  letter-spacing: 1.5px;
+  /* Increased letter spacing for elegance */
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect on Logo Text */
+.navbar-logo+span:hover {
+  color: #e67e22;
+  /* Slightly darker gold on hover */
+  transform: translateX(5px);
+  /* Subtle movement on hover */
+}
+
+/* Ensure the navbar content is aligned */
+.d-flex.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+/* Action Buttons in the Navbar */
+.nav-actions button {
+  font-size: 0.9rem;
+  /* Smaller font size for compact look */
+  padding: 8px 14px;
+  /* Reduced padding for a more compact button */
+  border-radius: 30px;
+  /* Rounder button for a more modern look */
+  margin: 0 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  /* Border for clean button */
+}
+
+/* Profile Icon */
+.profile-menu i {
+  font-size: 1.1rem;
+  /* Slightly smaller size for balance */
+  color: #7f8c8d;
+  /* A cooler, greyish tone for the profile icon */
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s ease-in-out;
+}
+
+.profile-menu i:hover {
+  color: #3498db;
+  /* Blue hover color matching the hotel theme */
+  transform: rotate(15deg);
+  /* Slight rotation effect */
+}
+
+
+/* Navbar Links */
+.navbar a {
+  color: #ecf0f1;
+  /* Lighter color for the links */
+  text-decoration: none;
+  font-size: 1rem;
+  margin-right: 20px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Subtle Hover Effect for Navbar Links */
+.navbar a:hover {
+  color: #95a5a6;
+  /* Muted greyish blue for a calmer hover effect */
+  transform: translateX(3px);
+  /* Small movement for interaction feedback */
+}
+
+/* Focus Effect for Accessibility */
+.navbar a:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+  /* Soft focus ring for accessibility */
+}
+
+
+.custom-icon-button {
+  background: none !important;
+  /* No background */
+  border: none !important;
+  /* No border */
+  padding: 0 !important;
+  /* Remove padding */
+  color: grey;
+  /* Grey color for the icon */
+  font-size: 2px;
+  /* Set size of the icon */
+  cursor: pointer;
+  /* Change cursor to indicate it's clickable */
+}
+
+.custom-icon-button i {
+  font-size: 20px;
+  /* Control the size of the icon */
+  color: grey;
+  /* Ensure the icon is grey */
+}
+
+
+
+/* Simple and Elegant Action Buttons in the Navbar */
+.nav-actions button.login {
+  background-color: #4b5862;
+  /* Cool, muted navy */
+  border: 1px solid #34495e;
+  /* Subtle border to separate from the background */
+  color: #ecf0f1;
+  /* Soft white for clarity */
+  font-size: 0.85rem;
+  /* Smaller size for simplicity */
+  padding: 6px 12px;
+  /* Compact padding */
+  border-radius: 25px;
+  /* Smooth, rounded corners */
+  transition: all 0.3s ease;
+  /* Smooth transition for hover */
+  text-transform: uppercase;
+  /* Clean, professional look */
+}
+
+.nav-actions button.signup {
+  background-color: #34495e;
+  /* Slightly darker tone for contrast */
+  border: 1px solid #2c3e50;
+  /* Matching subtle border */
+  color: #ecf0f1;
+  /* White for text clarity */
+  font-size: 0.85rem;
+  /* Consistent smaller font */
+  padding: 6px 12px;
+  /* Balanced padding */
+  border-radius: 25px;
+  /* Rounded corners */
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  /* Consistent style with login button */
+}
+
+/* Hover Effect for Simplicity and Clean Interaction */
+.nav-actions button:hover {
+  background-color: #1abc9c;
+  /* Cool, refreshing teal for hover */
+  border-color: #16a085;
+  /* Darker teal for border on hover */
+  color: white;
+  /* Clear contrast on hover */
+  transform: scale(1.05);
+  /* Slight scaling effect */
+}
+
+
+/* Focus Effect for Accessibility */
+.nav-actions button:focus {
+  outline: none;
+  /* Remove default focus outline */
+  box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+  /* Subtle focus ring */
+}

@@ -1,0 +1,318 @@
+/* Red border for the input fields when they have errors */
+.error-border {
+  border: 1px solid red !important;
+}
+
+
+/* Ensuring the input fields have some margin for better layout */
+.p-calendar {
+  margin-bottom: 10px; /* Add space between the calendar input and the error message */
+  display: block; /* Make sure inputs take full width of their container */
+}
+
+.content {
+  padding-left: 15rem;
+  padding-right: 15rem;
+  padding-top: 0rem;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+  transition: 0.2s linear;
+  top: 0px;
+  z-index: 100;
+  box-shadow: rgba(0, 0, 0, 0.34) 0px 0.25rem 1.25rem 0px;
+}
+
+.nofixed {
+  position: static;
+  transition: 0.2s linear;
+  top: -50px;
+}
+
+.bg-body-light {
+  background-color: #fff !important;
+}
+
+
+
+#bookYourStay {
+  margin-right: 2rem;
+  padding-top: 0.8rem;
+}
+
+.block-header {
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.hotel-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Moderate gap between cards */
+  justify-content: flex-start;
+  padding: 20px 20px; /* More subtle padding */
+  align-items: center;
+  background-color: #ece6d7; /* Soft, light background */
+}
+
+.hotel-card {
+  display: flex;
+  flex-direction: row;
+  width: 925px; /* Moderate width */
+  background-color: #ffffff;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 18rem;
+
+  &:hover {
+    transform: translateY(-8px); /* Slight hover effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+  }
+
+  .hotel-left {
+    width: 50%; /* Balanced left side */
+    height: 100%;
+    position: relative;
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    transition: opacity 0.5s ease;
+  }
+  .room-type {
+    font-size: 18px; /* Moderate font size */
+    font-weight: 500; /* Medium weight */
+    color: #444; /* Darker shade for text */
+    margin-bottom: 10px; /* Space below the room type */
+  }
+
+  .hotel-right {
+    padding: 25px; /* Balanced padding */
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hotel-title {
+    font-size: 24px; /* Subtle yet prominent title */
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.2;
+  }
+
+  .hotel-info {
+    display: flex;
+    gap: 10px; /* Moderate space between items */
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 15px;
+
+    .rating {
+      color: #ffb400; /* Golden rating for emphasis */
+    }
+  }
+
+  .description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  .details-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .price {
+      font-size: 22px; /* Moderate price size */
+      font-weight: 700;
+      color: #4caf50;
+    }
+
+    .cta-button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px; /* Subtle button size */
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px); /* Subtle button hover effect */
+      }
+
+      &:active {
+        transform: translateY(1px); /* Press effect */
+      }
+    }
+  }
+}
+
+::ng-deep .p-dialog {
+  border-radius: 16px;
+  max-width: 800px; // Increased from 460px
+  width: 90vw;  // Makes it responsive but not too large on big screens
+  background: #fff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+  .p-dialog-header {
+    padding: 16px 24px;
+    border: none;
+    background: #fff;
+
+    .p-dialog-title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .p-dialog-header-icons {
+      .p-dialog-header-close {
+        background: #f0f0f0;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+
+        &:hover {
+          background: #e5e5e5;
+        }
+
+        .p-dialog-header-close-icon {
+          font-size: 14px;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .p-dialog-content {
+    padding: 0 24px;
+
+    .filter-section {
+      padding: 24px 0;
+      border-bottom: 1px solid #f0f0f0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      h4 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0 0 16px 0;
+        color: #000;
+      }
+    }
+
+    .p-multiselect {
+      width: 100%;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+
+    .p-dropdown {
+      width: 100%;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+
+    .p-slider {
+      margin: 16px 0;
+
+      .p-slider-range {
+        background: #000;
+      }
+
+      .p-slider-handle {
+        background: #fff;
+        border: 2px solid #000;
+
+        &:hover {
+          background: #fff;
+          border-color: #000;
+        }
+      }
+    }
+
+    p {
+      color: #666;
+      font-size: 14px;
+      margin: 8px 0;
+    }
+  }
+
+  .dialog-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-top: 1px solid #f0f0f0;
+
+    .p-button-text {
+      color: #333;
+      font-size: 14px;
+      background: none;
+      border: none;
+      padding: 8px 16px;
+
+      &:hover {
+        background: #f5f5f5;
+        border-radius: 4px;
+      }
+    }
+
+    .p-button-primary {
+      background: #000;
+      border: none;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-size: 14px;
+
+      &:hover {
+        background: #333;
+      }
+
+      .p-button-icon {
+        font-size: 12px;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+::ng-deep .p-galleria .p-galleria-item-nav {
+  background: transparent;
+  color: #f8f9fa;
+  width: 4rem;
+  height: 4rem;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  border-radius: 6px;
+  margin: -21px 0.5rem;
+}

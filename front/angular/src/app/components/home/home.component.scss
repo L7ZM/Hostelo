@@ -1,0 +1,131 @@
+body {
+  padding-top: 60px;
+  /* Adjust this value for the height of your fixed bar */
+}
+
+.bg-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-image img {
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+}
+
+.bg-primary-dark-op {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+//* Footer Styles */
+#page-footer {
+  background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark blue-gray gradient for a modern feel */
+  color: #fff; /* White text to contrast with the background */
+  padding-top: 50px;
+  padding-bottom: 30px;
+  background-attachment: fixed; /* Optional: keeps the background in place while scrolling */
+}
+
+#page-footer .content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#page-footer h3 {
+  font-size: 1.5rem; /* Larger font size for headings */
+  font-weight: 600; /* Semi-bold for a more refined look */
+  margin-bottom: 15px;
+  color: #f39c12; /* Elegant gold color for headings */
+}
+
+#page-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#page-footer ul li {
+  margin-bottom: 12px;
+}
+
+#page-footer ul li a {
+  color: #ecf0f1; /* Light gray text for links */
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+#page-footer ul li a:hover {
+  color: #f39c12; /* Gold color on hover for emphasis */
+}
+
+#page-footer .fa-fw {
+  margin-right: 8px; /* Space between icon and text */
+}
+
+#page-footer .fs-sm {
+  font-size: 0.875rem; /* Smaller font size for address */
+}
+
+#page-footer .input-group {
+  margin-top: 15px;
+}
+
+#page-footer .form-control {
+  border-radius: 20px; /* Rounded corners for input */
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #bdc3c7; /* Light gray border */
+  background-color: #ecf0f1; /* Light background for the input field */
+}
+
+#page-footer .btn {
+  border-radius: 20px; /* Rounded corners for button */
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#page-footer .btn-alt-primary {
+  background-color: #f39c12; /* Gold color for the button */
+  color: white;
+  border: none;
+}
+
+#page-footer .btn-alt-primary:hover {
+  background-color: #e67e22; /* Darker gold color on hover */
+}
+
+#page-footer .btn-alt-primary:focus {
+  outline: none; /* Removes the focus outline */
+}
+// ccccccccccccccccccccccccccccccccccccccccc
+.btn-white {
+  background-color: #fff; /* White background */
+  color: #2c3e50; /* Dark text color */
+  border: 2px solid #2c3e50; /* Dark border to match text color */
+
+
+  border-radius: 5px; /* Rounded corners */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+.btn-white:hover {
+  background-color: #2c3e50; /* Dark background on hover */
+  color: #fff; /* White text on hover */
+  border: 2px solid #fff; /* White border on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.btn-white:focus {
+  outline: none; /* Remove focus outline */
+}
+ .btn, .btn-lg {
+  border-radius: 1.3rem;}

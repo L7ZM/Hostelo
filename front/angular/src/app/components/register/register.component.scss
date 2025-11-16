@@ -1,0 +1,105 @@
+/* Flex Layout for the entire page */
+.flex {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+}
+
+/* Form Section Styling */
+.form-section {
+  padding: 1rem; /* Reduced padding */
+  background: #f7f8fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Form container with larger width */
+.form-container {
+  width: 70%; /* Increased the width */
+  max-width: 400px; /* Set max-width */
+  margin-top: 0;
+}
+
+/* Right Container Styling */
+.right-container {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  position: relative;
+}
+
+.right-container img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 0px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Error Border for Inputs */
+.error-border {
+  border: 2px solid red !important;
+}
+
+.error-message {
+  color: red;
+  font-size: 10px; /* Smaller error message text */
+  margin-top: 3px;
+}
+
+.field-row {
+  display: flex;
+  gap: 6px; /* Reduced gap between fields */
+  width: 100%;
+}
+
+.field-row .field {
+  flex: 1;
+}
+
+button {
+  width: 100%;
+  margin-top: 0.25rem; /* Reduced top margin */
+  padding: 0.4rem; /* Reduced button padding */
+  font-size: 12px; /* Smaller button font */
+  text-align: center;
+  border-radius: 4px;
+}
+
+input, button {
+  height: 35px; /* Smaller input height */
+  font-size: 14px; /* Smaller font size */
+}
+/* Adjusted Form Container for Smaller Form */
+.form-container.small-form {
+  width: 55%; /* Reduced the width further */
+  max-width: 320px;
+  padding: 1rem;
+}
+
+.navbar-logo {
+  width: 120px; /* Increased logo size */
+  height: 120px;
+}
+
+/* Login Link Styling */
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+
+}
+
+/* Field Row */
+.field-row {
+  display: flex;
+  gap: 8px;
+}

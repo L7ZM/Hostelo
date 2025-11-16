@@ -1,0 +1,82 @@
+<div class="block block-rounded">
+  <div class="block-header block-header-default">
+    <h3 class="block-title">Services Management</h3>
+    <div class="block-options">
+      <!-- Add Service Button -->
+      <button type="button" class="btn btn-primary" (click)="openNew()">
+        <i class="fa fa-plus"></i> Add Service
+      </button>
+    </div>
+  </div>
+  <div class="block-content">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-vcenter">
+        <thead>
+          <tr>
+            <th style="width: 10%;">#</th>
+            <th>Name</th>
+            <th style="width: 40%;">Description</th>
+            <th style="width: 15%;">Price</th>
+            <th class="text-center" style="width: 15%;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let service of services; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td class="fw-semibold fs-sm">{{ service.nomService }}</td>
+            <td class="fs-sm">{{ service.description }}</td>
+            <td class="fs-sm">{{ service.prix | currency:'MAD' }}</td>
+            <td class="text-center">
+              <div class="btn-group">
+                <!-- Edit Button -->
+                <button
+                  type="button"
+                  class="btn btn-sm btn-alt-secondary"
+                  data-bs-toggle="tooltip"
+                  title="Edit"
+                  (click)="editService(service)">
+                  <i class="fa fa-fw fa-pencil-alt"></i>
+                </button>
+                <!-- Delete Button -->
+                <button
+                  type="button"
+                  class="btn btn-sm btn-alt-secondary"
+                  data-bs-toggle="tooltip"
+                  title="Delete"
+                  (click)="deleteService(service)">
+                  <i class="fa fa-fw fa-times"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Dialog for Add/Edit Service -->
+<p-dialog [(visible)]="serviceDialog" [header]="service.id ? 'Edit Service' : 'Add Service'" [modal]="true" [closable]="false" [style]="{width: '30vw'}">
+  <div class="p-fluid">
+    <div class="p-field">
+      <label for="nomService">Name</label>
+      <input id="nomService" type="text" pInputText [(ngModel)]="service.nomService" required />
+    </div>
+    <div class="p-field">
+      <label for="description">Description</label>
+      <input id="description" type="text" pInputText [(ngModel)]="service.description" required />
+    </div>
+    <div class="p-field">
+      <label for="prix">Price</label>
+      <input id="prix" type="number" pInputText [(ngModel)]="service.prix" required />
+
+    </div>
+  </div>
+  <div class="p-dialog-footer">
+    <button pButton label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+    <button pButton label="Save" icon="pi pi-check" class="p-button-text" (click)="saveService()"></button>
+  </div>
+</p-dialog>
+
+<p-confirmDialog></p-confirmDialog>
+<p-toast></p-toast>

@@ -1,0 +1,95 @@
+<div class="card">
+  <p-toast></p-toast>
+
+  <p-toolbar styleClass="mb-4">
+    <ng-template pTemplate="left">
+      <button pButton pRipple label="New Room" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+    </ng-template>
+  </p-toolbar>
+  <p-confirmDialog></p-confirmDialog>
+  <p-table [value]="rooms" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowHover]="true"
+          dataKey="id">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Room pictures</th>
+        <th>Room Number</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-room>
+      <tr>
+        <td>
+          <p-galleria [value]="room.photos" [showItemNavigators]="true" [showThumbnails]="false"
+           [showIndicators]="false" [showIndicatorsOnItem]="true"
+            [containerStyle]="{ 'max-width': '400px' }">
+            <ng-template pTemplate="item" let-photo>
+                <img [src]="'data:image/jpeg;base64,' + photo" style="width: 100%; display: block;" />
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-photo>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="'data:image/jpeg;base64,' + photo" style="display: block;" />
+                </div>
+            </ng-template>
+        </p-galleria>
+        </td>
+        <td>{{room.numeroChambre}}</td>
+        <td>{{room.type}}</td>
+        <td>{{room.etat}}</td>
+        <td>{{room.prix | currency:'MAD'}}</td>
+        <td>{{room.description}}</td>
+        <td>
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editRoom(room)"></button>
+          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteRoom(room)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog [(visible)]="displayDialog" [style]="{width: '450px'}" header="Room Details" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="numeroChambre">Room Number</label>
+      <p-inputNumber id="numeroChambre" [(ngModel)]="room.numeroChambre"></p-inputNumber>
+    </div>
+    <div class="field">
+      <label for="type">Type</label>
+      <p-dropdown id="type" [options]="typeOptions" [(ngModel)]="room.type" optionLabel="label" optionValue="value" placeholder="Select Type"></p-dropdown>
+    </div>
+    <div class="field">
+      <label for="etat">Status</label>
+      <p-dropdown id="etat" [options]="etatOptions" [(ngModel)]="room.etat" optionLabel="label" optionValue="value" placeholder="Select Status"></p-dropdown>
+    </div>
+    <div class="field">
+      <label for="prix">Price</label>
+      <p-inputNumber id="prix" [(ngModel)]="room.prix" mode="currency" currency="MAD" ></p-inputNumber>
+    </div>
+    <div class="field">
+      <label for="description">Description</label>
+      <textarea pInputTextarea id="description" [(ngModel)]="room.description" rows="3"></textarea>
+    </div>
+    <div class="field">
+      <label>Photos</label>
+      <p-fileUpload mode="advanced" [multiple]="true" accept="image/*" [maxFileSize]="1000000"
+                    (onSelect)="onPhotoSelect($event)" [showUploadButton]="false" [showCancelButton]="false">
+      </p-fileUpload>
+      <div class="photo-preview" *ngIf="room.photos.length > 0">
+        <div *ngFor="let photo of room.photos; let i = index" class="photo-item">
+          <img [src]="'data:image/png;base64,' + photo" width="80" height="80">
+          <button pButton icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-sm"
+                  (click)="removePhoto(i)"></button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="displayDialog = false"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveRoom()"></button>
+  </ng-template>
+</p-dialog>

@@ -1,0 +1,171 @@
+
+<main id="main-container">
+  <!-- Hero -->
+  <div
+    class="bg-image"
+    style="background-image: url('assets/media/photos/photo5@2x.jpg')"
+  >
+    <div class="bg-primary-dark-op">
+      <div class="content content-full text-center">
+        <div class="my-3">
+          <img
+            class="img-avatar img-avatar-thumb"
+            src="assets/media/avatars/avatar13.jpg"
+            alt="User Avatar"
+          />
+        </div>
+        <h1 class="h2 text-white mb-0">Edit Account</h1>
+        <h2 class="h4 fw-normal text-white-75">
+          {{ userProfile.nom }} {{ userProfile.prenom }}
+        </h2>
+      </div>
+    </div>
+  </div>
+  <!-- END Hero -->
+
+  <!-- Page Content -->
+  <div class="content content-boxed">
+    <!-- User Profile -->
+    <div class="block block-rounded">
+      <div class="block-header block-header-default">
+        <h3 class="block-title">User Profile</h3>
+      </div>
+      <div class="block-content">
+        <form (ngSubmit)="update()">
+          <div class="row push">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-8 col-xl-5">
+              <!-- Last Name -->
+              <div class="mb-4">
+                <label class="form-label" for="last-name">Last name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="last-name"
+                  name="last-name"
+                  placeholder="Enter your last name.."
+                  [(ngModel)]="userProfile.prenom"
+                  required
+                />
+              </div>
+
+              <!-- Name -->
+              <div class="mb-4">
+                <label class="form-label" for="name">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name.."
+                  [(ngModel)]="userProfile.nom"
+                  required
+                />
+              </div>
+
+              <!-- Email -->
+              <div class="mb-4">
+                <label class="form-label" for="email">Email Address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email.."
+                  [(ngModel)]="userProfile.email"
+                  required
+                />
+              </div>
+
+              <!-- Phone -->
+              <div class="mb-4">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter your phone.."
+                  [(ngModel)]="userProfile.telephone"
+                  required
+                />
+              </div>
+
+              <!-- Birth Date -->
+              <div class="mb-4">
+                <label class="form-label" for="birth-date">Date De naissance</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="birth-date"
+                  name="birth-date"
+                  [(ngModel)]="userProfile.dateNaissance"
+                  required
+                />
+              </div>
+
+              <!-- Address -->
+              <div class="mb-4">
+                <label class="form-label" for="address">Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  name="address"
+                  placeholder="Enter your address.."
+                  [(ngModel)]="userProfile.adresse"
+                />
+              </div>
+
+              <!-- New Password -->
+              <div class="mb-4">
+                <label class="form-label" for="new-password">New Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="new-password"
+                  name="new-password"
+                  [(ngModel)]="newPassword"
+                  (input)="checkPasswords()"
+                />
+              </div>
+
+              <!-- Confirm Password -->
+              <div class="mb-4">
+                <label class="form-label" for="confirm-password">Confirm New Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirm-password"
+                  name="confirm-password"
+                  [(ngModel)]="confirmPassword"
+                  [ngClass]="{ 'is-invalid': passwordsMismatch }"
+                  (input)="checkPasswords()"
+                />
+                <div *ngIf="passwordsMismatch" class="invalid-feedback">
+                  Passwords do not match.
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="mb-4">
+                <button
+                  type="submit"
+                  class="btn btn-alt-primary"
+                  [disabled]="passwordsMismatch"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- END Page Content -->
+</main>
+<p-toast></p-toast>
+

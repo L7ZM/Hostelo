@@ -1,0 +1,253 @@
+<div class="about-us">
+  <!-- Hero Section -->
+  <div class="hero" style="position: relative; height: 400px; overflow: hidden">
+    <img
+      src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
+      alt="Hostelo Hotel"
+      style="width: 100%; height: 100%; object-fit: cover"
+    />
+    <div
+      class="hero-content"
+      style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      "
+    >
+      <h1 style="font-size: 3rem; margin-bottom: 1rem">Welcome to Hostelo</h1>
+      <p style="font-size: 1.5rem">Where Luxury Meets Comfort</p>
+    </div>
+  </div>
+
+  <!-- Our Story Section -->
+  <div class="story" style="padding: 4rem 2rem; background-color: #f8f9fa">
+    <div
+      class="section-content"
+      style="
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      "
+    >
+      <div class="section-text" style="flex: 1">
+        <h2 style="margin-bottom: 1.5rem; color: #333">Our Story</h2>
+        <p style="line-height: 1.6">
+          At Hostelo, we are dedicated to providing an exceptional hospitality
+          experience that goes beyond mere accommodation. From our modern
+          amenities to the warm, personalized service we offer, every aspect of
+          Hostelo reflects our commitment to making every guest feel at home.
+          Our hotel, located in the heart of [City], blends contemporary style
+          with timeless comfort, catering to both business and leisure
+          travelers.
+        </p>
+      </div>
+      <div class="section-image" style="flex: 1">
+        <img
+          src="https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg"
+          alt="Hostelo Hotel Lobby"
+          style="width: 100%; height: auto; border-radius: 8px"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Values Section -->
+  <div class="values" style="padding: 4rem 2rem">
+    <h2 style="text-align: center; margin-bottom: 3rem; color: #333">
+      Our Values
+    </h2>
+    <div
+      class="values-list"
+      style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      "
+    >
+      <div class="value-item" style="text-align: center; padding: 1.5rem">
+        <img
+          src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg"
+          alt="Excellence"
+          style="
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+          "
+        />
+        <h3 style="margin-bottom: 1rem; color: #333">Excellence</h3>
+        <p>
+          We strive to provide outstanding service, ensuring every guest has a
+          memorable experience.
+        </p>
+      </div>
+      <div class="value-item" style="text-align: center; padding: 1.5rem">
+        <img
+          src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"
+          alt="Innovation"
+          style="
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+          "
+        />
+        <h3 style="margin-bottom: 1rem; color: #333">Innovation</h3>
+        <p>
+          We embrace modern technology and creative solutions to enhance your
+          stay.
+        </p>
+      </div>
+      <div class="value-item" style="text-align: center; padding: 1.5rem">
+        <img
+          src="https://images.pexels.com/photos/3735217/pexels-photo-3735217.jpeg"
+          alt="Sustainability"
+          style="
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+          "
+        />
+        <h3 style="margin-bottom: 1rem; color: #333">Sustainability</h3>
+        <p>
+          We are committed to eco-friendly practices in every aspect of our
+          operations.
+        </p>
+      </div>
+      <div class="value-item" style="text-align: center; padding: 1.5rem">
+        <img
+          src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg"
+          alt="Warmth"
+          style="
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+          "
+        />
+        <h3 style="margin-bottom: 1rem; color: #333">Warmth</h3>
+        <p>
+          Our team ensures a welcoming and attentive atmosphere for every guest.
+        </p>
+      </div>
+    </div>
+  </div>
+
+<!-- Facility Section -->
+<div class="facilities" style="padding: 4rem 2rem; background-color: #f8f9fa">
+  <h2 style="text-align: center; margin-bottom: 3rem; color: #333">
+    Our Facilities
+  </h2>
+
+  <!-- PrimeNG Carousel -->
+  <p-carousel [value]="facilities" [numVisible]="3" [numScroll]="1" styleClass="facility-carousel" [circular]="true"  >
+    <ng-template pTemplate="item" let-facility>
+      <div class="facility-item" style="text-align: center">
+        <img [src]="facility.image" alt="{{facility.title}}" style="width: 86%; height: 280px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem" />
+        <h3 style="margin-bottom: 1rem; color: #333; font-size: 1.2rem">{{facility.title}}</h3>
+        <p style="font-size: 0.9rem; color: #777">{{facility.description}}</p>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
+
+
+
+  <!-- Team and Why Choose Us sections -->
+  <div class="team-and-why" style="padding: 4rem 2rem">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div class="team" style="margin-bottom: 4rem">
+        <h2 style="text-align: center; margin-bottom: 1.5rem; color: #333">
+          Meet Our Team
+        </h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto">
+          Our team is our greatest asset. We pride ourselves on personalized
+          service, ensuring every guest feels welcomed and well-cared for. From
+          our front desk staff to housekeeping, every team member is dedicated
+          to making your stay memorable.
+        </p>
+      </div>
+
+      <div class="why-choose">
+        <h2 style="text-align: center; margin-bottom: 3rem; color: #333">
+          Why Choose Hostelo?
+        </h2>
+        <div
+          class="reasons-list"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+          "
+        >
+          <div class="reason-item" style="text-align: center; padding: 1.5rem">
+            <h3 style="margin-bottom: 1rem; color: #333">Prime Location</h3>
+            <p>
+              Located in the heart of the city, close to key attractions and
+              business districts.
+            </p>
+          </div>
+          <div class="reason-item" style="text-align: center; padding: 1.5rem">
+            <h3 style="margin-bottom: 1rem; color: #333">Luxury Comfort</h3>
+            <p>
+              Indulge in top-tier amenities, creating a perfect balance of
+              relaxation and convenience.
+            </p>
+          </div>
+          <div class="reason-item" style="text-align: center; padding: 1.5rem">
+            <h3 style="margin-bottom: 1rem; color: #333">
+              Tailored Experiences
+            </h3>
+            <p>
+              Customized packages for romantic getaways, business trips, and
+              family vacations.
+            </p>
+          </div>
+          <div class="reason-item" style="text-align: center; padding: 1.5rem">
+            <h3 style="margin-bottom: 1rem; color: #333">
+              Unforgettable Memories
+            </h3>
+            <p>
+              More than just a hotel; we offer an experience that stays with you
+              long after your visit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div
+    class="contact"
+    style="padding: 4rem 2rem; background-color: #f8f9fa; text-align: center"
+  >
+    <h2 style="margin-bottom: 2rem; color: #333">Get in Touch</h2>
+    <a
+      href="contact"
+      style="
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+      "
+      >Contact Us</a
+    >
+  </div>
+</div>

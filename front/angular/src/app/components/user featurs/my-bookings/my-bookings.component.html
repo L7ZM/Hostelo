@@ -1,0 +1,73 @@
+<div class="booking-container">
+  <header class="booking-header">
+    <h1>My Bookings</h1>
+    <a routerLink="/book" class="btn-book">New Booking</a>
+  </header>
+  <p-confirmDialog></p-confirmDialog>
+  <div class="booking-cards">
+    <div *ngIf="bookings.length === 0" class="no-bookings">
+      <p>No bookings available.</p>
+    </div>
+
+    <div *ngFor="let booking of bookings" class="booking-card">
+      <div class="room-info">
+        <div class="room-text">
+          <h4 style="margin-right: 96px;">Room N:</h4>
+          <h1 class="room-number">{{ booking.numeroChambre }}</h1>
+        </div>
+      </div>
+      <div class="info">
+        <div class="text">
+          <div class="room-name">
+            <span class="status" [ngClass]="{
+              'confirmed': booking.status === 'CONFIRMEE',
+              'pending': booking.status === 'EN_ATTENTE'
+            }">
+              {{ booking.status | titlecase }}
+            </span>
+          </div>
+          <div class="details">
+            <p><strong>Check-in:</strong> {{ booking.dateDebut }}</p>
+            <p><strong>Check-out:</strong> {{ booking.dateFin }}</p>
+            {{ booking.services?.join(', ') || 'No services' }}
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn-cancel" (click)="cancelReservation(booking)">Cancel</button>
+          <button class="btn-facture" (click)="viewFacture(booking)">View Facture</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-dialog
+
+  header="Facture Details"
+  [(visible)]="factureDialogVisible"
+  [modal]="true"
+  [style]="{ width: '600px', 'border-radius': '12px' }"
+  [closable]="true"
+  (onHide)="clearFacture()"
+>
+  <div class="facture-header">
+    <img src="assets/LogoPNG.png" alt="Logo" class="facture-logo" style="
+      width: 190px;
+      height: auto;
+      margin-left: 180px;" />
+
+  </div>
+
+  <ng-container *ngIf="facture">
+    <div class="facture-details">
+      <p><strong>Facture ID:</strong> {{ facture.id}}</p>
+      <p><strong>Total Amount:</strong> {{ facture.montantTotal | currency:'MAD' }}</p>
+      <p><strong>Date Issued:</strong> {{ facture.dateEmission | date:'longDate' }}</p>
+      <p><strong>Payment Status:</strong> {{ facture.etatPaiement }}</p>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!facture">
+    <p>Loading...</p>
+  </ng-container>
+</p-dialog>
+

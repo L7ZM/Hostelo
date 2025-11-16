@@ -1,0 +1,113 @@
+:host ::ng-deep .room-details {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+:host ::ng-deep .carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+:host ::ng-deep .carousel-inner {
+  position: relative;
+}
+
+:host ::ng-deep .carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+:host ::ng-deep .carousel-control-prev,
+:host ::ng-deep .carousel-control-next {
+  width: 5%;
+  height: 100%;
+  background: none;
+  border: none;
+}
+
+:host ::ng-deep .carousel-control-prev-icon,
+:host ::ng-deep .carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+:host ::ng-deep .room-info {
+  margin-bottom: 20px;
+}
+
+:host ::ng-deep .room-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+:host ::ng-deep .room-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+:host ::ng-deep .room-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+:host ::ng-deep .date-container,
+:host ::ng-deep .service-selection {
+  margin-bottom: 20px;
+}
+
+:host ::ng-deep .service-selection h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+:host ::ng-deep .service-item {
+  margin-bottom: 10px;
+}
+
+:host ::ng-deep .total-price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #28a745;
+}
+
+:host ::ng-deep .price-amount {
+  font-size: 24px;
+  color: #007bff;
+}
+
+:host ::ng-deep .dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+:host ::ng-deep .dialog-footer button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+:host ::ng-deep .p-button-rounded {
+  border-radius: 50px;
+}
+
+:host ::ng-deep .no-photo {
+  font-size: 18px;
+  font-weight: 500;
+  color: #888;
+  text-align: center;
+  padding: 20px 0;
+}

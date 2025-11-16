@@ -1,0 +1,133 @@
+<div class="room-details">
+  <!-- Room Image Carousel -->
+  <div *ngIf="room.photos?.length; else noPhoto" class="carousel-container">
+    <div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div
+          *ngFor="let photo of room.photos; let i = index"
+          class="carousel-item"
+          [class.active]="i === 0"
+        >
+          <img
+            [src]="'data:image/jpeg;base64,' + photo"
+            class="d-block w-100 rounded"
+            alt="Room photo"
+          />
+        </div>
+      </div>
+      <div class="carousel-indicators">
+        <button
+          *ngFor="let photo of room.photos; let i = index"
+          type="button"
+          data-bs-target="#roomCarousel"
+          [attr.data-bs-slide-to]="i"
+          [class.active]="i === 0"
+          [attr.aria-label]="'Slide ' + (i + 1)"
+        ></button>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#roomCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#roomCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <ng-template #noPhoto>
+    <div class="no-photo text-center text-muted py-3">
+      <p>No Photos Available</p>
+    </div>
+  </ng-template>
+
+  <!-- Room Details Section -->
+  <div class="room-info">
+    <h2 class="room-title">{{ room.numeroChambre }} - {{ room.type }}</h2>
+    <p class="room-description">
+      {{ room.description || "No description available." }}
+    </p>
+    <p class="room-price">
+      <strong>Price:</strong> {{ room.prix }} MAD / night
+    </p>
+  </div>
+
+  <!-- Display Dates -->
+  <div class="date-container">
+    <p>
+      <strong>Check-in Date (From):</strong> {{ dateFrom | date : "shortDate" }}
+    </p>
+    <p>
+      <strong>Check-out Date (To):</strong> {{ dateTo | date : "shortDate" }}
+    </p>
+    <p><strong>Total Days:</strong> {{ totalDays }} days</p>
+  </div>
+
+  <!-- Select Services -->
+  <div class="service-selection">
+    <div *ngFor="let service of services" class="service-item">
+      <p-checkbox
+        [label]="service.nomService + ' (' + service.prix + ' MAD)'"
+        [(ngModel)]="selectedServices[service.nomService]"
+        [value]="service"
+        (ngModelChange)="updatePrice(service)"
+        [disabled]="service.isRequired"
+        class="service-checkbox"
+      ></p-checkbox>
+    </div>
+  </div>
+  <div *ngIf="fidelityPoints >= 50" class="points-selection">
+    <h3>Available points: {{ fidelityPoints }}</h3>
+
+    <label for="applyPoints">
+      <input
+        type="checkbox"
+        id="applyPoints"
+        [checked]="applyPoints"
+        (change)="onApplyPointsChange($event)"
+      />
+      Apply points
+    </label>
+
+
+
+
+
+    <p>For 50 points: 50% discount</p>
+  </div>
+  <!-- Total Price Section -->
+  <div class="total-price">
+    <h3>
+      Total Price: <span class="price-amount">{{ totalPrice }} MAD</span>
+    </h3>
+  </div>
+  <p *ngIf="applyPoints">Final Price (After Discount): {{ finalPrice }} $</p>
+</div>
+<!-- Dialog Footer -->
+<div class="dialog-footer">
+  <button
+    pButton
+    label="Close"
+    icon="pi pi-times"
+    (click)="closeDialog()"
+    class="p-button-text p-button-rounded"
+  ></button>
+  <button
+    pButton
+    label="Confirm Booking"
+    (click)="reserveRoom()"
+    icon="pi pi-check"
+    class="p-button-primary p-button-rounded"
+  ></button>
+  <p-toast></p-toast>
+</div>

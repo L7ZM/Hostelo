@@ -1,0 +1,26 @@
+.create-button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.customer-cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.p-sidebar-lg {
+  width: 60vw; /* Adjust sidebar width for a better look */
+}
+
+.app-customer-card {
+  /* Ensure proper margins and padding for the customer card */
+  margin-bottom: 20px;
+}
+p-button-success {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+}

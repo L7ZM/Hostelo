@@ -1,0 +1,138 @@
+// // _variables.scss
+// $primary-color: #2a2a2a;
+// $secondary-color: #4a90e2;
+// $background-color: #f5f5f5;
+// $success-color: #2ecc71;
+// $error-color: #e74c3c;
+// $spacing-unit: 1rem;
+// $border-radius: 4px;
+// $transition: all 0.3s ease;
+
+// // styles.scss
+// .contact-page {
+//   max-width: 800px;
+//   margin: 0 auto;
+//   padding: $spacing-unit * 2;
+//   background-color: white;
+//   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+//   h1 {
+//     color: $primary-color;
+//     font-size: 2.5rem;
+//     margin-bottom: $spacing-unit * 2;
+//     text-align: center;
+//   }
+
+//   .contact-info {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//     gap: $spacing-unit * 2;
+//     margin-bottom: $spacing-unit * 3;
+
+//     .info-card {
+//       background: $background-color;
+//       padding: $spacing-unit * 1.5;
+//       border-radius: $border-radius;
+//       transition: $transition;
+
+//       &:hover {
+//         transform: translateY(-5px);
+//         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+//       }
+
+//       h3 {
+//         color: $secondary-color;
+//         margin-bottom: $spacing-unit;
+//       }
+
+//       p {
+//         color: $primary-color;
+//         line-height: 1.6;
+//       }
+//     }
+//   }
+
+//   .contact-form {
+//     background: $background-color;
+//     padding: $spacing-unit * 2;
+//     border-radius: $border-radius;
+
+//     .form-group {
+//       margin-bottom: $spacing-unit * 1.5;
+
+//       label {
+//         display: block;
+//         margin-bottom: $spacing-unit / 2;
+//         color: $primary-color;
+//         font-weight: 500;
+//       }
+
+//       input,
+//       textarea {
+//         width: 100%;
+//         padding: $spacing-unit;
+//         border: 1px solid darken($background-color, 10%);
+//         border-radius: $border-radius;
+//         transition: $transition;
+
+//         &:focus {
+//           outline: none;
+//           border-color: $secondary-color;
+//           box-shadow: 0 0 0 2px rgba($secondary-color, 0.2);
+//         }
+//       }
+
+//       textarea {
+//         min-height: 150px;
+//         resize: vertical;
+//       }
+//     }
+
+//     button {
+//       background: $secondary-color;
+//       color: white;
+//       padding: $spacing-unit $spacing-unit * 2;
+//       border: none;
+//       border-radius: $border-radius;
+//       cursor: pointer;
+//       transition: $transition;
+//       font-weight: 600;
+
+//       &:hover {
+//         background: darken($secondary-color, 10%);
+//       }
+//     }
+//   }
+
+//   .success-message,
+//   .error-message {
+//     padding: $spacing-unit;
+//     border-radius: $border-radius;
+//     margin-top: $spacing-unit;
+//     display: none;
+
+//     &.active {
+//       display: block;
+//     }
+//   }
+
+//   .success-message {
+//     background: rgba($success-color, 0.1);
+//     color: $success-color;
+//   }
+
+//   .error-message {
+//     background: rgba($error-color, 0.1);
+//     color: $error-color;
+//   }
+// }
+
+// @media (max-width: 768px) {
+//   .contact-page {
+//     padding: $spacing-unit;
+
+//     h1 {
+//       font-size: 2rem;
+//     }
+//   }
+// }

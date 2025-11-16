@@ -1,0 +1,105 @@
+
+              <div class="card">
+                <p-confirmDialog></p-confirmDialog>
+                <p-table
+                  [value]="reservations"
+                  dataKey="id"
+                  [rows]="10"
+                  [paginator]="true"
+                  [rowsPerPageOptions]="[10, 25, 50]"
+                  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                  [globalFilterFields]="['numeroChambre', 'dateDebut', 'dateFin', 'status']"
+                >
+
+                <ng-template pTemplate="caption">
+                  <p style="text-align: center; align-items: center; height: 0rem;">MANAGE BOOKING</p>
+                </ng-template>
+
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th style="min-width:8rem">
+                        <div class="flex align-items-center">
+                          Room Number
+                          <p-columnFilter type="text" field="numeroChambre" display="menu"></p-columnFilter>
+                        </div>
+                      </th>
+                      <th style="min-width:8rem">
+                        <div class="flex align-items-center">
+                          First name
+                          <p-columnFilter type="text" field="prenom" display="menu"></p-columnFilter>
+                        </div>
+                      </th>
+                      <th style="min-width:8rem">
+                        <div class="flex align-items-center">
+                          Last name
+                          <p-columnFilter type="text" field="nom" display="menu"></p-columnFilter>
+                        </div>
+                      </th>
+                      <th style="min-width:10rem">
+                        <div class="flex align-items-center">
+                          Start Date
+                        </div>
+                      </th>
+                      <th style="min-width:10rem">
+                        <div class="flex align-items-center">
+                          End Date
+                        </div>
+                      </th>
+                      <th style="min-width:10rem">
+                        <div class="flex align-items-center">
+                          Additionnel services 
+                        </div>
+                      </th>
+                      <th style="min-width:10rem">
+                        <div class="flex align-items-center">
+                            Status
+                      
+                        </div>
+                    </th>
+                      <th style="min-width:10rem">
+                        <div class="flex align-items-center">
+                          Actions
+                        </div>
+                      </th>
+                      </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="body" let-reservation>
+                    <tr>
+                      <td>{{ reservation.numeroChambre }}</td>
+                      <td>{{ reservation.prenom }}</td>
+                      <td>{{ reservation.nom }}</td>
+                      <td>{{ reservation.dateDebut | date: 'dd/MM/yyyy' }}</td>
+                      <td>{{ reservation.dateFin | date: 'dd/MM/yyyy' }}</td>
+                      <td>
+                        <span *ngIf="reservation.services?.length; else noServices">
+                          {{ reservation.services.join(' , ') }}
+                        </span>
+                        <ng-template #noServices>
+                          <span>No additional services</span>
+                        </ng-template>
+                      </td>
+                      <td>
+                        <p-tag
+                          *ngIf="reservation.status"
+                          [value]="reservation.status"
+                          [severity]="getSeverity(reservation.status)">
+                        </p-tag>
+                      </td>
+                      <td>
+                        <button pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-outlined mr-2" (click)="validateReservation(reservation)"  ></button>
+                        <button pButton pRipple icon="pi pi-file-edit" class="p-button-rounded p-button-success p-button-outlined mr-2" ></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined" (click)="deleteReservation(reservation)" ></button>
+                      </td>
+                    </tr>
+                  </ng-template>
+
+                  <ng-template pTemplate="emptymessage">
+                    <tr>
+                      <td colspan="4">No bookings found.</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+
+              <p-toast />

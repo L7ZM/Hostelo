@@ -1,0 +1,176 @@
+<header id="page-header">
+  <div class="content-header">
+    <p-sidebar
+    [(visible)]="sidebarVisible"
+    [styleClass]="'custom-sidebar'"
+    [baseZIndex]="10000"
+    position="left"
+    [style]="{
+      'width': '260px',
+      'background-color': '#f5f9ff',
+      'color': '#fff',
+      'box-shadow': '4px 0 10px rgba(0, 0, 0, 0.1)',
+      'padding': '20px',
+      'z-index': '100'
+    }"
+  >
+    <div class="sidebar-content">
+      <!-- Hotel Logo Image -->
+      <a href="" class="d-flex align-items-center">
+        <img src="assets/LogoPNG.png" alt="Hotel Logo" class="navbar-logo me-2" />
+      </a>
+
+      <div class="menu">
+        <ul class="nav-main">
+
+          <li *ngIf="userRole === 'staff'" class="nav-main-heading">Administration</li>
+
+
+          <li *ngIf="userRole === 'staff'" class="nav-main-item">
+            <a class="nav-main-link" routerLink="rooms">
+              <i class="pi pi-building nav-main-link-icon"></i>
+              <span class="nav-main-link-name">Manage Rooms</span>
+            </a>
+          </li>
+          <li *ngIf="userRole === 'staff'" class="nav-main-item">
+            <a class="nav-main-link" routerLink="/customers">
+              <i class="pi pi-users nav-main-link-icon"></i>
+              <span class="nav-main-link-name">Manage Users</span>
+            </a>
+          </li>
+          <li *ngIf="userRole === 'staff'" class="nav-main-item">
+            <a class="nav-main-link" routerLink="/services">
+              <i class="pi pi-cog nav-main-link-icon"></i>
+              <span class="nav-main-link-name">Manage Services</span>
+            </a>
+          </li>
+          <li *ngIf="userRole === 'staff'" class="nav-main-item">
+            <a class="nav-main-link" routerLink="/ManageBooking">
+              <i class="pi pi-calendar-plus nav-main-link-icon"></i>
+              <span class="nav-main-link-name">Manage Bookings</span>
+            </a>
+          </li>
+          <li *ngIf="userRole !== 'visitor'" class="nav-main-heading">User Dashboard</li>
+
+          <li *ngIf="userRole !== 'visitor'"  class="nav-main-item">
+            <a class="nav-main-link" routerLink="/my-bookings">
+              <i class="pi pi-calendar nav-main-link-icon"></i>
+              <span class="nav-main-link-name" routerLink="myBookings">My Bookings</span>
+            </a>
+          </li>
+          <li *ngIf="userRole !== 'visitor'"  class="nav-main-item">
+            <a class="nav-main-link" routerLink="/profile">
+              <i class="pi pi-user nav-main-link-icon"></i>
+              <span class="nav-main-link-name">My Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </p-sidebar>
+
+
+    <button
+      *ngIf="userRole !== 'visitor'"
+      (click)="sidebarVisible = true"
+      class="custom-icon-button"
+    >
+      <i class="pi pi-bars"></i>
+    </button>
+
+    <!-- Left Section (Logo) -->
+    <div class="d-flex align-items-center justify-content-start">
+      <!-- Hotel Logo Image -->
+      <a href="" class="d-flex align-items-center">
+        <img
+          src="assets/LogoPNG.png"
+          alt="Hotel Logo"
+          class="navbar-logo me-2"
+        />
+      </a>
+    </div>
+
+    <!-- Center Section (Menu) -->
+    <div class="d-flex justify-content-center flex-grow-1">
+      <ul class="nav-main nav-main-horizontal nav-main-hover">
+        <li class="nav-main-item">
+          <a class="nav-main-link active" href="">
+            <i class="nav-main-link-icon si si-home"></i>
+            <span class="nav-main-link-name">Home</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a class="nav-main-link" href="about">
+            <i class="nav-main-link-icon si si-info"></i>
+            <span class="nav-main-link-name">About Us</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a class="nav-main-link" href="contact">
+            <i class="nav-main-link-icon si si-envelope"></i>
+            <span class="nav-main-link-name">Contact</span>
+          </a>
+        </li>
+        <li class="nav-main-item">
+          <a *ngIf="userRole === 'user' || userRole === 'staff'" class="nav-main-link" href="book">
+            <i class="nav-main-link-icon fas fa-bed"></i>
+            <span class="nav-main-link-name">Our Rooms</span>
+          </a>
+          <a *ngIf="userRole === 'visitor'" class="nav-main-link" href="register">
+            <i class="nav-main-link-icon fas fa-bed"></i>
+            <span class="nav-main-link-name">Our Rooms</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right Section (Action Buttons) -->
+    <div class="d-flex align-items-center justify-content-end">
+      <div class="nav-actions">
+        <!-- Login & Sign Up Buttons for Visitors -->
+        <button
+          *ngIf="userRole === 'visitor'"
+          pButton
+          type="button"
+          label="Login"
+          class="btn login"
+          routerLink="login"
+        ></button>
+        <button
+          *ngIf="userRole === 'visitor'"
+          pButton
+          type="button"
+          label="Sign Up"
+          class="btn signup"
+          routerLink="register"
+        ></button>
+      </div>
+
+      <!-- Profile Menu for Logged-In Users -->
+      <div
+        *ngIf="userRole === 'user' || userRole === 'staff'"
+        class="profile-menu"
+      >
+        <i class="pi pi-user profile-icon" (click)="menu.toggle($event)"></i>
+        <p-menu #menu [model]="profileItems" [popup]="true"></p-menu>
+      </div>
+    </div>
+  </div>
+</header>
+
+<p-dialog header="Fidelity Points"
+          [(visible)]="isFidelityDialogVisible"
+          [style]="{width: '400px', 'z-index': '9999'}"
+          [modal]="true"
+          [closable]="false"
+          [resizable]="false"
+          [draggable]="false"
+          class="fidelity-dialog">
+  <p>
+    <strong>Your current fidelity points:</strong> {{ fidelityPoints }}
+  </p>
+  <p-footer>
+    <button type="button" pButton label="Close" icon="pi pi-times" (click)="isFidelityDialogVisible = false"></button>
+  </p-footer>
+</p-dialog>
+

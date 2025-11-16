@@ -1,0 +1,190 @@
+<div class="flex">
+  <!-- Form Section (Left Half) -->
+  <div class="col-6 form-section flex flex-column justify-content-center">
+    <div class="form-container small-form">
+      <div class="text-center">
+        <!-- Larger Logo -->
+        <a routerLink="" class="d-flex justify-content-center mb-3">
+          <img src="assets/LogoPNG.png" alt="Hotel Logo" class="navbar-logo" />
+        </a>
+        <h1 style="font-size: 20px; margin-bottom: 1rem;">Create Account</h1>
+      </div>
+
+      <!-- Error Message -->
+      <p-message
+        *ngIf="errorMsg"
+        severity="error"
+        [text]="errorMsg"
+        styleClass="mb-1 w-full"
+      ></p-message>
+
+      <!-- Form Elements -->
+      <form #form="ngForm" (ngSubmit)="createAccount()">
+        <!-- Nom and Prenom Fields -->
+        <div class="field-row">
+          <div class="field">
+            <label for="nom" style="font-size: 12px;">Nom</label>
+            <input
+              [(ngModel)]="customer.nom"
+              id="nom"
+              name="nom"
+              pInputText
+              placeholder="Jane"
+              type="text"
+              class="w-full"
+              required
+              #nom="ngModel"
+              [ngClass]="{ 'error-border': nom.touched && nom.invalid }"
+            />
+            <div *ngIf="nom.touched && nom.invalid" class="error-message">
+              <small>Nom is required.</small>
+            </div>
+          </div>
+          <div class="field">
+            <label for="prenom" style="font-size: 12px;">Prenom</label>
+            <input
+              [(ngModel)]="customer.prenom"
+              id="prenom"
+              name="prenom"
+              pInputText
+              placeholder="Arablanca"
+              type="text"
+              class="w-full"
+              required
+              #prenom="ngModel"
+              [ngClass]="{ 'error-border': prenom.touched && prenom.invalid }"
+            />
+            <div *ngIf="prenom.touched && prenom.invalid" class="error-message">
+              <small>Prenom is required.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="field">
+          <label for="email" style="font-size: 12px;">Email</label>
+          <input
+            [(ngModel)]="customer.email"
+            id="email"
+            name="email"
+            pInputText
+            placeholder="Jane@gmail.com"
+            type="email"
+            class="w-full"
+            required
+            #email="ngModel"
+            [ngClass]="{ 'error-border': email.touched && email.invalid }"
+          />
+          <div *ngIf="email.touched && email.invalid" class="error-message">
+            <small *ngIf="email.errors?.['required']">Email is required.</small>
+            <small *ngIf="email.errors?.['email']">Invalid email format.</small>
+          </div>
+        </div>
+
+        <!-- Telephone and Date de Naissance Fields in One Row -->
+        <div class="field-row">
+          <div class="field">
+            <label for="telephone" style="font-size: 12px;">Tel</label>
+            <input
+              [(ngModel)]="customer.telephone"
+              id="telephone"
+              name="telephone"
+              pInputText
+              placeholder="07 07 07 07 07"
+              type="text"
+              class="w-full"
+              required
+              #telephone="ngModel"
+              [ngClass]="{ 'error-border': telephone.touched && telephone.invalid }"
+            />
+            <div *ngIf="telephone.touched && telephone.invalid" class="error-message">
+              <small>Telephone is required.</small>
+            </div>
+          </div>
+          <div class="field">
+            <label for="dateNaissance" style="font-size: 12px;">Date de Naissance</label>
+            <input
+              [(ngModel)]="customer.dateNaissance"
+              id="dateNaissance"
+              name="dateNaissance"
+              pInputText
+              type="date"
+              class="w-full"
+              required
+              #dateNaissance="ngModel"
+              [ngClass]="{ 'error-border': dateNaissance.touched && dateNaissance.invalid }"
+            />
+            <div *ngIf="dateNaissance.touched && dateNaissance.invalid" class="error-message">
+              <small>Date of birth is required.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adresse Field -->
+        <div class="field">
+          <label for="adresse" style="font-size: 12px;">Adresse</label>
+          <input
+            [(ngModel)]="customer.adresse"
+            id="adresse"
+            name="adresse"
+            pInputText
+            placeholder="123 rue city"
+            type="text"
+            class="w-full"
+            required
+            #adresse="ngModel"
+            [ngClass]="{ 'error-border': adresse.touched && adresse.invalid }"
+          />
+          <div *ngIf="adresse.touched && adresse.invalid" class="error-message">
+            <small>Adresse is required.</small>
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="field">
+          <label for="password" style="font-size: 12px;">Password</label>
+          <input
+            [(ngModel)]="customer.password"
+            id="password"
+            name="password"
+            pInputText
+            placeholder="Password"
+            type="password"
+            class="w-full"
+            required
+            minlength="6"
+            #password="ngModel"
+            [ngClass]="{ 'error-border': password.touched && password.invalid }"
+          />
+          <div *ngIf="password.touched && password.invalid" class="error-message">
+            <small *ngIf="password.errors?.['required']">Password is required.</small>
+            <small *ngIf="password.errors?.['minlength']">Password must be at least 6 characters.</small>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          pButton
+          label="Create Account"
+          class="w-full"
+          type="submit"
+          [disabled]="form.invalid"
+        ></button>
+      </form>
+
+      <!-- Login Link -->
+      <div class="text-center mt-3">
+        <a routerLink="/login" class="login-link">Already have an account? <span style="font-weight: bold;">Log in  here!</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Section (Right Half) -->
+  <div class="col-6 right-container flex flex-column justify-content-center align-items-center">
+    <img
+      class="background"
+      src="assets/7.jpg"
+      alt="Background"
+    />
+  </div>
+</div>

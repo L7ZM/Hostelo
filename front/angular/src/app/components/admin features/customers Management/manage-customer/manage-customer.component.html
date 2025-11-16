@@ -1,0 +1,156 @@
+<div class="form-container">
+  <h2 class="form-title">
+    {{ operation === "update" ? "Update Customer" : "New Customer" }}
+  </h2>
+
+  <!-- Name Field -->
+  <div class="field">
+    <label for="nom">Nom</label>
+    <input
+      [(ngModel)]="customer.nom"
+      id="nom"
+      pInputText
+      type="text"
+      #nom="ngModel"
+      required
+    />
+    <small *ngIf="nom.invalid && nom.touched" class="error-msg">
+      Nom is required.
+    </small>
+  </div>
+
+  <!-- Prenom Field -->
+  <div class="field">
+    <label for="prenom">Prenom</label>
+    <input
+      [(ngModel)]="customer.prenom"
+      id="prenom"
+      pInputText
+      type="text"
+      #prenom="ngModel"
+      required
+    />
+    <small *ngIf="prenom.invalid && prenom.touched" class="error-msg">
+      Prenom is required.
+    </small>
+  </div>
+
+  <!-- Email Field -->
+  <div class="field">
+    <label for="email">Email</label>
+    <input
+      [(ngModel)]="customer.email"
+      id="email"
+      pInputText
+      type="email"
+      #email="ngModel"
+      required
+      email
+    />
+    <small *ngIf="email.invalid && email.touched" class="error-msg">
+      Valid email is required.
+    </small>
+  </div>
+
+  <!-- Telephone Field -->
+  <div class="field">
+    <label for="telephone">Telephone</label>
+    <input
+      [(ngModel)]="customer.telephone"
+      id="telephone"
+      pInputText
+      type="text"
+      #telephone="ngModel"
+      required
+    />
+    <small *ngIf="telephone.invalid && telephone.touched" class="error-msg">
+      Telephone is required.
+    </small>
+  </div>
+
+  <!-- Adresse Field -->
+  <div class="field">
+    <label for="adresse">Adresse</label>
+    <input
+      [(ngModel)]="customer.adresse"
+      id="adresse"
+      pInputText
+      type="text"
+      #adresse="ngModel"
+      required
+    />
+    <small *ngIf="adresse.invalid && adresse.touched" class="error-msg">
+      Adresse is required.
+    </small>
+  </div>
+
+  <!-- Date of Birth Field -->
+  <div class="field">
+    <label for="dateNaissance">Date de naissance</label>
+    <input
+      [(ngModel)]="customer.dateNaissance"
+      id="dateNaissance"
+      pInputText
+      type="date"
+      #dateNaissance="ngModel"
+      required
+    />
+    <small *ngIf="dateNaissance.invalid && dateNaissance.touched" class="error-msg">
+      Date de naissance is required.
+    </small>
+  </div>
+
+<!-- Authorities Field -->
+<div class="field">
+  <label for="authorities">Roles</label>
+  <p-multiSelect
+    [(ngModel)]="customer.authorities"
+    [options]="authoritiesOptions"
+    optionLabel="label"
+    optionValue="value"
+    id="authorities"
+    name="authorities"
+    required
+    display="chip"
+    [style]="{ width: '100%' }"
+  ></p-multiSelect>
+  <small *ngIf="!customer.authorities?.length" class="error-msg">
+    At least one authority is required.
+  </small>
+</div>
+
+
+  <!-- Password Field -->
+  <div class="field">
+    <label for="password">Password</label>
+    <input
+      [(ngModel)]="customer.password"
+      id="password"
+      pInputText
+      type="password"
+      #password="ngModel"
+      required
+      minlength="6"
+    />
+    <small *ngIf="password.invalid && password.touched" class="error-msg">
+      Password is required (min 6 characters).
+    </small>
+  </div>
+
+  <!-- Submit and Cancel Buttons -->
+  <div class="actions">
+    <button
+      [disabled]="!isCustomerValid"
+      (click)="onSubmit()"
+      pButton
+      label="Submit"
+      class="btn"
+    ></button>
+    <button
+      (click)="onCancel()"
+      pButton
+      label="Cancel"
+      class="btn cancel"
+    ></button>
+  </div>
+</div>

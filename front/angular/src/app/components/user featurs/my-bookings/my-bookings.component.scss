@@ -1,0 +1,228 @@
+.booking-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #ece6d7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 2px solid #ddd;
+  width: 100%;
+  max-width: 800px;
+}
+
+.booking-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.btn-book {
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-book:hover {
+  background-color: #0056b3;
+}
+
+.booking-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.booking-card {
+  width: 100%;
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.room-info {
+  position: relative;
+  width: 350px;
+  height: 200px; /* Adjust as needed */
+  background-color: aliceblue;
+  border-radius: 10px;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.room-text {
+  position: absolute;
+  top: 10px; /* Position "Room N:" text in top-left corner */
+  left: 10px;
+  font-size: 20px;
+  color: #333;
+  margin-right: 96px;
+}
+
+.room-number {
+  font-size: 80px; /* Large font size for the room number */
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  margin-left: 135px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.text {
+  padding: 10px 0;
+}
+
+.room-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.room-type {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.status.confirmed {
+  background-color: #28a745;
+  color: white;
+}
+
+.status.pending {
+  background-color: #ffc107;
+  color: black;
+}
+
+.details p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-facture, .btn-cancel {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-facture:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.btn-cancel:hover {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+/* Luxury style for facture dialog */
+::ng-deep .luxury-facture-dialog .p-dialog {
+  background-color: #ffffff; /* Clean white background */
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+::ng-deep .luxury-facture-dialog .facture-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f2f2f2; /* Elegant bottom border */
+}
+
+::ng-deep .luxury-facture-dialog .facture-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for logo */
+}
+
+::ng-deep .luxury-facture-dialog .facture-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50; /* Dark, elegant text */
+  letter-spacing: 0.5px;
+}
+
+::ng-deep .luxury-facture-dialog .facture-details {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #34495e; /* Subtle gray-blue text for elegance */
+}
+
+::ng-deep .luxury-facture-dialog .facture-details strong {
+  color: #2c3e50; /* Rich dark color for important text */
+  font-weight: 600;
+}
+
+::ng-deep .luxury-facture-dialog p {
+  font-size: 16px;
+  color: #7f8c8d; /* Muted gray color for normal text */
+  margin-bottom: 12px;
+}
+
+::ng-deep .luxury-facture-dialog p:last-child {
+  margin-bottom: 0; /* Remove margin on last item */
+}
+
+::ng-deep .luxury-facture-dialog .p-dialog-title {
+  color: #2c3e50; /* Matching title color */
+  font-weight: 600;
+  font-size: 24px;
+}
